@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 
 import Login from './pages/Login/index'
+import ScreenChat from './pages/ScreenChat/index'
 
 
 const AppStack = createStackNavigator()
@@ -14,7 +15,8 @@ export default function Routes() {
             <AppStack.Navigator screenOptions={{ headerShown: false }}>
                 
                 
-                <AppStack.Screen name='Login' component={Login} />
+                {/* <AppStack.Screen name='Login' component={Login} /> */}
+                <AppStack.Screen name='ScreenChat' component={ScreenChat} />
 
             </AppStack.Navigator>
         </NavigationContainer>
