@@ -16,4 +16,4 @@ export default function ScreenChat() {
 
         </View>
     )
-}
+}0
