@@ -17,6 +17,10 @@ export default function Login() {
         navigation.push('Register')
          
     }
+    function goToHome(){
+        navigation.push('ScreenChat')
+         
+    }
 
     return (
         <View style={styles.containe} >
@@ -40,7 +44,7 @@ export default function Login() {
 
 
                 <View style={styles.actions}>
-                    <TouchableOpacity disabled={false} style={styles.action} >
+                    <TouchableOpacity disabled={false} style={styles.action} onPress={goToHome} >
                         <Text style={styles.actionText}>Entrar</Text>
                     </TouchableOpacity>
                     <Text style={styles.textStyle} >Esqueceu sua senha?</Text>
