@@ -2,27 +2,34 @@ import React, { useEffect, useState, Link } from 'react'
 import { View, Image, Text, TouchableOpacity, TextInput, ImageBackground, ProgressBarAndroid, Dimensions } from 'react-native'
 import styles from './styles'
 import LogoImg from '../../assets/logo1g.png'
+import LogoImg2 from '../../assets/logo2.png'
 import Imgbtn from '../../assets/logotype.png'
 import Imgbtn2 from '../../assets/logotype2.png'
 import { Feather } from '@expo/vector-icons'
 
-
 import { useNavigation, useRoute } from '@react-navigation/native'
 
-export default function Login() {
-   
+export default function Cadastro() {
     const navigation = useNavigation();
 
-    function navigateToCadastro(){
-        navigation.push('Register')
+    function navigateToLogin(){
+        navigation.push('Login')
          
     }
-
     return (
         <View style={styles.containe} >
             <View style={styles.header}>
-                <Image style={styles.tinyLogo} source={LogoImg} /><Text style={{color:"white"}}></Text>
+                <Image style={styles.tinyLogo} source={LogoImg2} />
             </View>
+
+            <TextInput
+                    style={styles.input}
+                    onChangeText={() => { }}
+                    //value={}
+
+                    placeholder="Insira seu nome"
+                />
+
                 <TextInput
                     style={styles.input}
                     onChangeText={() => { }}
@@ -38,32 +45,19 @@ export default function Login() {
                     placeholder="Insira sua senha"
                 />
 
+               
+
 
                 <View style={styles.actions}>
-                    <TouchableOpacity disabled={false} style={styles.action} >
-                        <Text style={styles.actionText}>Entrar</Text>
+                    <TouchableOpacity disabled={false} style={styles.action} onPress={() => { }} >
+                        <Text style={styles.actionText}>Cadastrar</Text>
                     </TouchableOpacity>
                     <Text style={styles.textStyle} >Esqueceu sua senha?</Text>
                 </View>
 
-                <Text style={styles.text2}>Ou entre com:</Text>
-
-                <View style={styles.actions2}>
-                   
-                    <TouchableOpacity disabled={false} style={styles.action2}>
-                    <Image style={styles.imgbtn} source={Imgbtn2}/>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity disabled={false} style={styles.action2}  >
-                        <Image style={styles.imgbtn} source={Imgbtn}/>
-                    </TouchableOpacity>
-                    
-                    
-                </View>
-
                 <View style={styles.footer}>
-                    <TouchableOpacity onPress={navigateToCadastro} >
-                    <Text style={styles.text2}>Não tem uma conta?Cadastre-se</Text>
+                    <TouchableOpacity disabled={false} onPress={navigateToLogin}>
+                    <Text style={styles.text2}>Já tem uma conta? Acesse</Text>
                     </TouchableOpacity>
                     
                 </View>

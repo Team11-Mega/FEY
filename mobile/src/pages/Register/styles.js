@@ -5,26 +5,25 @@ export default StyleSheet.create({
     
     containe: {
         flex: 1,
-        paddingHorizontal: 24,
-        backgroundColor:"#213826",
-        paddingTop: Constants.statusBarHeight + 20,
+        backgroundColor:"#ffffff",
         alignItems:"center"
         
     },
 
     header: {
-        flex:2,
-        flexDirection: 'row',
-        justifyContent: "space-between",
-        marginBottom:10,
-        marginTop:25,
+        flex:2,       
+        backgroundColor:"#035121",
+        height:300,
+        width:'100%',
+        justifyContent: "center",
+        padding:50,       
         alignItems: 'center'
     },
 
     loginContainer: {
         flex: 2,
         padding: 10,
-        height:50,
+        height:10,
         backgroundColor: "#ffffff",
         marginBottom: 0,
         position:"relative",
@@ -64,10 +63,10 @@ export default StyleSheet.create({
         fontSize: 18,
         borderRadius: 20,
         height: 60,
-        
+        borderWidth: 1,
         marginTop: 20,
         padding: 10,
-        backgroundColor:"#487848"
+        backgroundColor:"#ffffff"
 
     },
 
@@ -80,9 +79,6 @@ export default StyleSheet.create({
 
     actions: {
         flex:3,
-      
-        flexDirection: 'column',
-        justifyContent: 'center',
         marginTop:20,
         height:100,
         width:'100%',
@@ -106,17 +102,16 @@ export default StyleSheet.create({
         borderRadius: 20,
         height: 50,
         width: '100%',
-        justifyContent: 'center',
+        justifyContent:"center",
         alignItems: 'center',
         marginTop: 0,
-        
 
     },
      text2:{
          marginTop:10,
          fontSize:20,
          fontWeight:"bold",
-         color:"#ffffff",
+         color:"#000000",
          
         },
 
@@ -138,9 +133,7 @@ export default StyleSheet.create({
      
    },
 
-
-
-    actionText: {
+     actionText: {
         color: "#FFF",
         fontSize: 21,
         fontWeight: 'bold'
@@ -157,14 +150,11 @@ export default StyleSheet.create({
 
     },
     tinyLogo: {
-        width: 200,
+        width: 100,
         height: 100,
         borderRadius:10,
-       
-        marginTop:20,
-        marginBottom:30
-
-        
+        marginTop:30,
+        marginBottom:30  
       },
 
       footer:{

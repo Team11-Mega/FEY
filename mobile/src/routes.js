@@ -1,24 +1,24 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native'
+import{createStackNavigator} from '@react-navigation/stack'
 
+import Register from './pages/Register/index'
 import Login from './pages/Login/index'
 import ScreenChat from './pages/ScreenChat/index'
 
 
-const AppStack = createStackNavigator()
-//screenOptions={{ headerShown: false }} tira o header da aplicação
 
-export default function Routes() {
-    return (
+const AppStack = createStackNavigator();
+
+export default function Routes(){
+    return(
         <NavigationContainer>
-            <AppStack.Navigator screenOptions={{ headerShown: false }}>
-                
-                
-                {/* <AppStack.Screen name='Login' component={Login} /> */}
-                <AppStack.Screen name='ScreenChat' component={ScreenChat} />
 
+            <AppStack.Navigator initialRouteName="Login" screenOptions={{headerShown:false}}>
+                <AppStack.Screen name="Register" component={Register}/>
+                <AppStack.Screen name="Login" component={Login}/>
             </AppStack.Navigator>
+
         </NavigationContainer>
-    )
+    )   
 }
