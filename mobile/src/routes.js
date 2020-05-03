@@ -4,6 +4,7 @@ import{createStackNavigator} from '@react-navigation/stack'
 
 import Register from './pages/Register/index'
 import Login from './pages/Login/index'
+import ScreenChat from './pages/ScreenChat/index'
 
 
 
