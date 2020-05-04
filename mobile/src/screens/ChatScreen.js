@@ -2,6 +2,7 @@ import React, { useEffect, useState, Link } from 'react'
 import { Platform, SafeAreaView, View, Image, Text, TouchableOpacity } from 'react-native'
 import { GiftedChat, MessageText, InputToolbar, Switch, checked, Bubble } from 'react-native-gifted-chat'
 // import Fire from './Fire'/
+import apiBot from '../services/apiBot'
 const customtInputToolbar = props => {
     return (
         <InputToolbar
@@ -41,7 +42,7 @@ let renderMessageText = (props, userID) => {
         return(
             <View
             style={{
-                backgroundColor: "#257B49",
+                backgroundColor: "#4AB248",
                 padding: 20,
                 alignItems: "center",
                 borderTopRightRadius: 5,
@@ -130,6 +131,8 @@ export default function ChatScreen() {
 
     const [messages, setMessages] = useState([])
     const [user, setUser] = useState({ _id: -1 })
+
+    
     let m = [
         {
             _id: 2,
@@ -144,7 +147,7 @@ export default function ChatScreen() {
 
         {
             _id: 3,
-            text: 'Hello developer',
+            text: 'Heveloper',
             createdAt: new Date(Date.UTC(2020, 5, 3, 1, 40, 0)),
             user: {
                 _id: 2,
@@ -155,14 +158,47 @@ export default function ChatScreen() {
     ]
 
     useEffect(() => {
-        setMessages(m)
+        //setMessages(m)
+        //talkWithBot()
     }, [])
 
-    function onSend(previousState = []) {
-        setMessages(GiftedChat.append(previousState, messages, false))
-        console.log(previousState[0].user)
-        setUser(previousState[0].user)
 
+    async function talkWithBot(text){
+        //console.log(text[0])
+        const data = {text:text[0].text}
+        await apiBot.post('send-msg',data)
+        .then(r=>{
+            //console.log(r.data.text)
+            let m = [
+                {
+                    _id: Math.floor(Math.random() * (1000 - 1)) + 1,
+                    text: r.data.text,
+                    createdAt: new Date(Date.UTC(2020, 5, 3, 1, 40, 0)),
+                    user: {
+                        _id: 2,
+                        name: 'React Native',
+                        //avatar: 'https://facebook.github.io/react/img/logo_og.png',
+                    },
+                },
+               text[0]
+            ]
+            //console.log(m)
+            setMessages(GiftedChat.append(m, messages, false))
+            //onSend(m)
+        }).catch(err => {
+
+            console.log(err)
+        })
+    }
+
+   async function onSend(previousState=[]) {
+    talkWithBot(previousState)
+        // setMessages(GiftedChat.append(previousState, messages, false))
+       console.log(previousState)
+        setUser(previousState[0].user)
+      //  talkWithBot(previousState)
+
+   //console.log(messages)
     }
     return (
         <GiftedChat
